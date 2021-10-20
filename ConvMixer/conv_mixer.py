@@ -5,7 +5,7 @@ import tensorflow as tf
 learning_rate = 0.001
 weight_decay = 0.0001
 batch_size = 128
-num_epochs = 1
+num_epochs = 10
 image_size = 32
 auto = tf.data.AUTOTUNE
 
@@ -89,7 +89,7 @@ def conv_mixer_block(x, filters: int, kernel_size: int):
 def get_conv_mixer_256_8(image_size=32, filters=256, depth=8, kernel_size=5,
                          patch_size=2, num_classes=10):
     """ConvMixer-256/8: https://openreview.net/pdf?id=TVHS5Y4dNvM.
-    The hyperparameter values are taken from the paper.
+    The hyper parameter values are taken from the paper.
     """
     inputs = keras.Input((image_size, image_size, 3))
     x = layers.Rescaling(scale=1.0 / 255)(inputs)
